@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mãos que Unem - Conectando Solidariedade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .hidden-section { display: none; }
+        .institution-card:hover { border-color: #3b82f6; background-color: #eff6ff; }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navegação -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="showSection('home')">
+                    <i class="fas fa-hand-holding-heart text-blue-600 text-3xl"></i>
+                    <span class="text-xl font-bold text-blue-900 tracking-tight">Mãos que Unem</span>
+                </div>
+                <div class="hidden lg:flex space-x-6">
+                    <button onclick="showSection('home')" class="hover:text-blue-600 font-medium transition">Início</button>
+                    <button onclick="showSection('donate')" class="hover:text-blue-600 font-medium transition">Quero Doar</button>
+                    <button onclick="showSection('receive')" class="hover:text-blue-600 font-medium transition">Preciso de Ajuda</button>
+                    <button onclick="showSection('register-inst')" class="hover:text-blue-600 font-medium transition text-blue-700 font-bold">Cadastrar Instituição</button>
+                </div>
+                <div>
+                    <button onclick="showSection('donate')" class="bg-blue-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg text-sm">
+                        Doar Agora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal (Home) -->
+    <main id="home-section">
+        <!-- Hero -->
+        <section class="hero-gradient text-white py-16 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 space-y-6 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                        Unindo corações, <br><span class="text-blue-200">mudando destinos</span>.
+                    </h1>
+                    <p class="text-lg opacity-90 max-w-lg">
+                        Conectamos doadores individuais a pessoas necessitadas e instituições de caridade. Escolha como você quer ajudar hoje.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                        <button onclick="showSection('donate')" class="bg-white text-blue-700 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition shadow-xl">
+                            Quero Doar
+                        </button>
+                        <button onclick="showSection('register-inst')" class="bg-blue-800/40 border border-white/30 px-8 py-3 rounded-xl font-bold hover:bg-blue-800 transition">
+                            Sou uma Instituição
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Mãos dadas significando união" class="rounded-3xl shadow-2xl w-full max-w-md border-4 border-white/20">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Estatísticas (Novidade: Impacto em Números) -->
+        <section class="relative -mt-10 px-4 mb-12">
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-50 text-center stat-card">
+                    <div class="text-blue-600 text-3xl mb-2"><i class="fas fa-coins"></i></div>
+                    <div class="text-2xl font-bold text-gray-800">R$ 45.200</div>
+                    <div class="text-xs text-gray-500 uppercase font-semibold">Doados este ano</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-50 text-center stat-card">
+                    <div class="text-green-500 text-3xl mb-2"><i class="fas fa-home"></i></div>
+                    <div class="text-2xl font-bold text-gray-800">1.280</div>
+                    <div class="text-xs text-gray-500 uppercase font-semibold">Famílias Ajudadas</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-50 text-center stat-card">
+                    <div class="text-indigo-500 text-3xl mb-2"><i class="fas fa-building-ngo"></i></div>
+                    <div class="text-2xl font-bold text-gray-800">32</div>
+                    <div class="text-xs text-gray-500 uppercase font-semibold">Instituições</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-50 text-center stat-card">
+                    <div class="text-orange-500 text-3xl mb-2"><i class="fas fa-users"></i></div>
+                    <div class="text-2xl font-bold text-gray-800">450+</div>
+                    <div class="text-xs text-gray-500 uppercase font-semibold">Voluntários</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Histórias de Impacto -->
+        <section class="py-16 px-4 bg-white border-b">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-blue-900 mb-4">Veja como sua ajuda faz a diferença</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Transparência é nossa prioridade. Aqui estão alguns exemplos de como as doações recentes impactaram vidas.</p>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Impacto 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Doação de cestas básicas" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        </div>
+                        <div class="md:w-1/2 space-y-4">
+                            <span class="text-blue-600 font-bold uppercase tracking-wider text-sm">Alimentação Saudável</span>
+                            <h3 class="text-2xl font-bold text-gray-800">Cestas Básicas para 50 Famílias</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                No último mês, graças aos nossos doadores, conseguimos entregar 50 cestas básicas completas na Comunidade Vila Esperança. Além de itens não perecíveis, incluímos frutas e legumes frescos comprados de produtores locais, garantindo uma nutrição balanceada para crianças e idosos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Impacto 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="md:w-1/2">
+                            <img src="https://lh4.googleusercontent.com/proxy/boapZhZCNBqec8DZgCzzwYxnB32aABaorT6Hb7vEoiWfJekTr7VgomJyAEpHC5VOV6fPwHoD2ACQTLlcCq1NjAeRU7EwBTczLr373f326Y7jNJ5i0c9fQItp48Lb_vubGnAAuOCO8-FJ" 
+                                 alt="Crianças brincando com doações" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        </div>
+                        <div class="md:w-1/2 space-y-4">
+                            <span class="text-orange-500 font-bold uppercase tracking-wider text-sm">Educação e Lazer</span>
+                            <h3 class="text-2xl font-bold text-gray-800">Materiais Escolares e Brinquedos</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                A Instituição "Lar dos Pequenos" recebeu um lote de cadernos, mochilas e estojos para o início do ano letivo. Também foram doados brinquedos educativos que agora fazem parte da brinquedoteca, ajudando no desenvolvimento criativo de dezenas de crianças atendidas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Para onde vai sua doação? -->
+        <section class="py-20 px-4 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-blue-900 mb-4">Escolha uma Instituição para Ajudar</h2>
+                    <p class="text-gray-600">Você pode doar diretamente para nossos parceiros verificados.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Instituição 1 -->
+                    <div class="bg-white border rounded-2xl p-6 institution-card transition cursor-pointer" onclick="showSection('donate')">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-xl font-bold">LP</div>
+                            <div>
+                                <h4 class="font-bold">Lar dos Pequenos</h4>
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Orfanato</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Apoia 45 crianças com educação e moradia. Necessitam de alimentos e material escolar.</p>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-600 h-full w-[70%]"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-400">70% da meta mensal atingida</span>
+                    </div>
+
+                    <!-- Instituição 2 -->
+                    <div class="bg-white border rounded-2xl p-6 institution-card transition cursor-pointer" onclick="showSection('donate')">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl font-bold">AV</div>
+                            <div>
+                                <h4 class="font-bold">Amigos da Vila</h4>
+                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Comunitário</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Distribuição de marmitas para moradores de rua. Necessitam de gás e ingredientes.</p>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-green-600 h-full w-[45%]"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-400">45% da meta mensal atingida</span>
+                    </div>
+
+                    <!-- Instituição 3 -->
+                    <div class="bg-white border rounded-2xl p-6 institution-card transition cursor-pointer" onclick="showSection('donate')">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-xl font-bold">PA</div>
+                            <div>
+                                <h4 class="font-bold">Patas Amigas</h4>
+                                <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Animal</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Abrigo para cães e gatos resgatados. Necessitam urgentemente de ração e vacinas.</p>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-600 h-full w-[90%]"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-400">90% da meta mensal atingida</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulários -->
+    <!-- Formulário: Quero Doar -->
+    <section id="donate-section" class="hidden-section py-16 px-4">
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border">
+            <div class="bg-blue-600 p-8 text-white text-center">
+                <h2 class="text-3xl font-bold">Área do Doador</h2>
+                <p class="opacity-80">Obrigado por querer fazer a diferença.</p>
+            </div>
+            <form class="p-8 space-y-6" onsubmit="handleSubmit(event, 'doação')">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Seu Nome</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Destino da Doação</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-blue-500">
+                            <option value="geral">Fundo Geral (Para quem mais precisa)</option>
+                            <option value="lp">Lar dos Pequenos</option>
+                            <option value="av">Amigos da Vila</option>
+                            <option value="pa">Patas Amigas</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">O que deseja doar?</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <label class="border p-3 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-blue-50"><input type="checkbox"> Alimentos</label>
+                        <label class="border p-3 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-blue-50"><input type="checkbox"> Roupas</label>
+                        <label class="border p-3 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-blue-50"><input type="checkbox"> Dinheiro</label>
+                        <label class="border p-3 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-blue-50"><input type="checkbox"> Móveis</label>
+                        <label class="border p-3 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-blue-50"><input type="checkbox"> Tempo</label>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition">Confirmar Intenção de Doação</button>
+                <button type="button" onclick="showSection('home')" class="w-full text-gray-400">Cancelar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Formulário: Registrar Instituição -->
+    <section id="register-inst-section" class="hidden-section py-16 px-4">
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border">
+            <div class="bg-indigo-700 p-8 text-white text-center">
+                <h2 class="text-3xl font-bold">Cadastro de Instituição</h2>
+                <p class="opacity-80">Registre sua ONG ou projeto social para receber doações da nossa rede.</p>
+            </div>
+            <form class="p-8 space-y-6" onsubmit="handleSubmit(event, 'cadastro institucional')">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Nome da Instituição</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">CNPJ (Opcional)</label>
+                        <input type="text" placeholder="00.000.000/0001-00" class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-indigo-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Tipo de Atendimento</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-indigo-500">
+                        <option>Crianças e Adolescentes</option>
+                        <option>Idosos</option>
+                        <option>Proteção Animal</option>
+                        <option>Meio Ambiente</option>
+                        <option>Apoio Comunitário / Alimentos</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-indigo-700 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-800 transition">Solicitar Cadastro Institucional</button>
+                <button type="button" onclick="showSection('home')" class="w-full text-gray-400">Voltar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Formulário: Preciso de Ajuda (Pessoa Física) -->
+    <section id="receive-section" class="hidden-section py-16 px-4">
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border">
+            <div class="bg-green-600 p-8 text-white text-center">
+                <h2 class="text-3xl font-bold">Solicitar Apoio Direto</h2>
+                <p class="opacity-80">Para indivíduos ou famílias em situação de necessidade imediata.</p>
+            </div>
+            <form class="p-8 space-y-6" onsubmit="handleSubmit(event, 'pedido de ajuda')">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Seu Nome</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-green-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">WhatsApp para Contato</label>
+                        <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-gray-200 outline-none focus:border-green-500">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition">Enviar Pedido de Socorro</button>
+                <button type="button" onclick="showSection('home')" class="w-full text-gray-400">Voltar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal de Sucesso -->
+    <div id="alert-modal" class="fixed inset-0 bg-black/60 hidden flex items-center justify-center z-[100] px-4 backdrop-blur-sm">
+        <div class="bg-white p-8 rounded-3xl max-w-sm w-full text-center space-y-4 shadow-2xl">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-4xl">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">Recebido!</h3>
+            <p id="alert-message" class="text-gray-600 leading-relaxed"></p>
+            <button onclick="closeModal()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">Continuar navegando</button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-slate-900 text-white py-12 px-4 mt-20">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <i class="fas fa-hand-holding-heart text-2xl text-blue-400"></i>
+                <span class="text-xl font-bold">Mãos que Unem</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-6">Conectando corações para um futuro melhor.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-facebook text-xl"></i></a>
+            </div>
+            <p class="text-slate-500 text-[10px]">© 2024 ONG Mãos que Unem. Feito com amor para a comunidade.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = ['home-section', 'donate-section', 'receive-section', 'register-inst-section'];
+            sections.forEach(id => document.getElementById(id).classList.add('hidden-section'));
+
+            if (sectionId === 'home') document.getElementById('home-section').classList.remove('hidden-section');
+            else if (sectionId === 'donate') document.getElementById('donate-section').classList.remove('hidden-section');
+            else if (sectionId === 'receive') document.getElementById('receive-section').classList.remove('hidden-section');
+            else if (sectionId === 'register-inst') document.getElementById('register-inst-section').classList.remove('hidden-section');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleSubmit(event, type) {
+            event.preventDefault();
+            const message = `Seu ${type} foi registrado com sucesso! Entraremos em contato em breve.`;
+            document.getElementById('alert-message').innerText = message;
+            document.getElementById('alert-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('alert-modal').classList.add('hidden');
+            showSection('home');
+        }
+    </script>
+</body>
+</html>
